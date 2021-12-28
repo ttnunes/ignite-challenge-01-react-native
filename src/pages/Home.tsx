@@ -19,11 +19,11 @@ export function Home() {
   }
 
   function handleToggleTaskDone(id: number) {
-    const updatedTasks = tasks
-    const task = updatedTasks.findIndex(task => task.id === id)
+    const updatedTasks = tasks.map(task => ({ ...task }))
+    const taskIndex = updatedTasks.findIndex(task => task.id === id)
 
-    const done = updatedTasks[task].done 
-    updatedTasks[task].done = !done 
+    const done = updatedTasks[taskIndex].done 
+    updatedTasks[taskIndex].done = !done 
 
     setTasks(updatedTasks)
   }
